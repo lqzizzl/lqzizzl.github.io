@@ -3,11 +3,11 @@
   <title>刘强的博客</title>
   <icon>https://www.gravatar.com/avatar/dd49790798d9b05aa9a6471cd2b458c4</icon>
   <subtitle>脚踏实地，仰望星空</subtitle>
-  <link href="https://lqzizzl.github.io/atom.xml" rel="self"/>
+  <link href="http://lqzizzl.github.io/atom.xml" rel="self"/>
   
-  <link href="https://lqzizzl.github.io/"/>
+  <link href="http://lqzizzl.github.io/"/>
   <updated>2020-12-28T02:47:42.348Z</updated>
-  <id>https://lqzizzl.github.io/</id>
+  <id>http://lqzizzl.github.io/</id>
   
   <author>
     <name>E-Dreamer</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>数字图像处理-第一章</title>
-    <link href="https://lqzizzl.github.io/2020/12/28/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%B8%80%E7%AB%A0/"/>
-    <id>https://lqzizzl.github.io/2020/12/28/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%B8%80%E7%AB%A0/</id>
+    <link href="http://lqzizzl.github.io/2020/12/28/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%B8%80%E7%AB%A0/"/>
+    <id>http://lqzizzl.github.io/2020/12/28/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%B8%80%E7%AB%A0/</id>
     <published>2020-12-28T01:54:05.000Z</published>
     <updated>2020-12-28T02:47:42.348Z</updated>
     
@@ -34,19 +34,19 @@
     
     
     
-    <category term="图像处理" scheme="https://lqzizzl.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    <category term="图像处理" scheme="http://lqzizzl.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
     
-    <category term="图像处理" scheme="https://lqzizzl.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    <category term="图像处理" scheme="http://lqzizzl.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
-    <category term="Matlab" scheme="https://lqzizzl.github.io/tags/Matlab/"/>
+    <category term="Matlab" scheme="http://lqzizzl.github.io/tags/Matlab/"/>
     
   </entry>
   
   <entry>
     <title>八大排序</title>
-    <link href="https://lqzizzl.github.io/2020/12/19/%E2%80%98%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E2%80%99/"/>
-    <id>https://lqzizzl.github.io/2020/12/19/%E2%80%98%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E2%80%99/</id>
+    <link href="http://lqzizzl.github.io/2020/12/19/%E2%80%98%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E2%80%99/"/>
+    <id>http://lqzizzl.github.io/2020/12/19/%E2%80%98%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E2%80%99/</id>
     <published>2020-12-19T03:14:52.000Z</published>
     <updated>2020-12-21T12:27:16.430Z</updated>
     
@@ -61,12 +61,12 @@
     
     
     
-    <category term="编程题" scheme="https://lqzizzl.github.io/categories/%E7%BC%96%E7%A8%8B%E9%A2%98/"/>
+    <category term="编程题" scheme="http://lqzizzl.github.io/categories/%E7%BC%96%E7%A8%8B%E9%A2%98/"/>
     
     
-    <category term="排序" scheme="https://lqzizzl.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
+    <category term="排序" scheme="http://lqzizzl.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
     
-    <category term="c++" scheme="https://lqzizzl.github.io/tags/c/"/>
+    <category term="c++" scheme="http://lqzizzl.github.io/tags/c/"/>
     
   </entry>
   
