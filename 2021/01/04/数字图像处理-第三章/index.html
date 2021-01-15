@@ -49,7 +49,7 @@
 <meta property="og:image" content="https://s3.ax1x.com/2021/01/15/sB9QTe.png">
 <meta property="og:image" content="https://s3.ax1x.com/2021/01/15/sB98fA.md.png">
 <meta property="article:published_time" content="2021-01-04T01:17:23.000Z">
-<meta property="article:modified_time" content="2021-01-15T13:09:49.872Z">
+<meta property="article:modified_time" content="2021-01-15T13:16:56.437Z">
 <meta property="article:author" content="E-Dreamer">
 <meta property="article:tag" content="图像处理">
 <meta property="article:tag" content="Matlab">
@@ -221,7 +221,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-15 21:09:49" itemprop="dateModified" datetime="2021-01-15T21:09:49+08:00">2021-01-15</time>
+                <time title="修改时间：2021-01-15 21:16:56" itemprop="dateModified" datetime="2021-01-15T21:16:56+08:00">2021-01-15</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,17 +262,17 @@
 <p>其中，MN是图像中像素的总数，nk是灰度为rk的像素个数，L是图像中可能的灰度级的数量（即对8比特图像是256），rk相对的p(rk)图形通常称为直方图。 </p>
 <h5 id="直方图均衡"><a href="#直方图均衡" class="headerlink" title="直方图均衡"></a>直方图均衡</h5><p><a target="_blank" rel="noopener" href="https://imgchr.com/i/s0z3Yn"><img src="https://s3.ax1x.com/2021/01/15/s0z3Yn.png" alt="s0z3Yn.png"></a></p>
 <p>将输入图像中灰度级为rk的各像素映射到输出图像中灰度级为sk的对应像素。</p>
-<h5 id="直方图均衡说明实例"><a href="#直方图均衡说明实例" class="headerlink" title="直方图均衡说明实例"></a>直方图均衡说明实例</h5><p>[<img src="https://s3.ax1x.com/2021/01/15/s0zTpt.png" alt="s0zTpt.png"></p>
+<h5 id="直方图均衡说明实例"><a href="#直方图均衡说明实例" class="headerlink" title="直方图均衡说明实例"></a>直方图均衡说明实例</h5><p><img src="https://s3.ax1x.com/2021/01/15/s0zTpt.png" alt="s0zTpt.png"></p>
 <p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sBSJNd"><img src="https://s3.ax1x.com/2021/01/15/sBSJNd.png" alt="sBSJNd.png"></a></p>
 <p>图像具有相同内容，直方图均衡导致的对比度增强足以步长图像在视觉上难以区分灰度级的差别。 </p>
 <h5 id="直方图规定化"><a href="#直方图规定化" class="headerlink" title="直方图规定化"></a>直方图规定化</h5><p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sBSsEQ"><img src="https://s3.ax1x.com/2021/01/15/sBSsEQ.png" alt="sBSsEQ.png"></a></p>
-<h5 id="直方图规定化过程"><a href="#直方图规定化过程" class="headerlink" title="直方图规定化过程"></a>直方图规定化过程</h5><p>[<img src="https://s3.ax1x.com/2021/01/15/sBSWvV.png" alt="sBSWvV.png"></p>
+<h5 id="直方图规定化过程"><a href="#直方图规定化过程" class="headerlink" title="直方图规定化过程"></a>直方图规定化过程</h5><p><img src="https://s3.ax1x.com/2021/01/15/sBSWvV.png" alt="sBSWvV.png"></p>
 <h5 id="直方图规定化实例"><a href="#直方图规定化实例" class="headerlink" title="直方图规定化实例"></a>直方图规定化实例</h5><p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sBS5bF"><img src="https://s3.ax1x.com/2021/01/15/sBS5bF.png" alt="sBS5bF.png"></a></p>
 <h5 id="局部直方图处理"><a href="#局部直方图处理" class="headerlink" title="局部直方图处理"></a>局部直方图处理</h5><p>定义：类似于卷积过程，逐像素移至另一个像素，在每个位置，计算邻域中点的直方图，不采用直方图均衡化而是规定化变换函数。 </p>
 <p>相关参量</p>
 <p>平均灰度——所有像素的灰度值之和/ 图像中的像素总数，平均灰度的度量。 </p>
 <p>灰度方差——[f(x,y)-m]^2/图像中像素总数，图像对比度的度量。 </p>
-<h5 id="计算实例"><a href="#计算实例" class="headerlink" title="计算实例"></a>计算实例</h5><p>[<a target="_blank" rel="noopener" href="https://imgchr.com/i/sBpyqO"><img src="https://s3.ax1x.com/2021/01/15/sBpyqO.png" alt="sBpyqO.png"></a>](<a target="_blank" rel="noopener" href="https://imgchr.com/i/sBSLgx">https://imgchr.com/i/sBSLgx</a>)</p>
+<h5 id="计算实例"><a href="#计算实例" class="headerlink" title="计算实例"></a>计算实例</h5><p><img src="https://s3.ax1x.com/2021/01/15/sBpyqO.png" alt="sBpyqO.png"></p>
 <h4 id="空间滤波基础"><a href="#空间滤波基础" class="headerlink" title="空间滤波基础"></a>空间滤波基础</h4><h5 id="滤波过程"><a href="#滤波过程" class="headerlink" title="滤波过程"></a>滤波过程</h5><p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sBp2IH"><img src="https://s3.ax1x.com/2021/01/15/sBp2IH.png" alt="sBp2IH.png"></a></p>
 <p>卷积与滤波的区别：滤波是滤波器模板移过每个位置乘积之和的处理，卷积机理类似但是滤波器首先要旋转180度。 </p>
 <p>各种滤波去噪见：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/E-Dreamer-Blogs/p/10458846.html">https://www.cnblogs.com/E-Dreamer-Blogs/p/10458846.html</a></p>
@@ -286,7 +286,7 @@
 <h4 id="使用一阶微分对（非线性）图像锐化——梯度"><a href="#使用一阶微分对（非线性）图像锐化——梯度" class="headerlink" title="使用一阶微分对（非线性）图像锐化——梯度"></a>使用一阶微分对（非线性）图像锐化——梯度</h4><h5 id="使用梯度进行边缘增强实例"><a href="#使用梯度进行边缘增强实例" class="headerlink" title="使用梯度进行边缘增强实例"></a>使用梯度进行边缘增强实例</h5><p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sBpzQ0"><img src="https://s3.ax1x.com/2021/01/15/sBpzQ0.png" alt="sBpzQ0.png"></a></p>
 <h4 id="模糊集合应用"><a href="#模糊集合应用" class="headerlink" title="模糊集合应用"></a>模糊集合应用</h4><p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sB9pLT"><img src="https://s3.ax1x.com/2021/01/15/sB9pLT.png" alt="sB9pLT.png"></a></p>
 <p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sB9QTe"><img src="https://s3.ax1x.com/2021/01/15/sB9QTe.png" alt="sB9QTe.png"></a></p>
-<p>[<a target="_blank" rel="noopener" href="https://imgchr.com/i/sB98fA"><img src="https://s3.ax1x.com/2021/01/15/sB98fA.md.png" alt="sB98fA.md.png"></a>](<a target="_blank" rel="noopener" href="https://imgchr.com/i/sB98fA">https://imgchr.com/i/sB98fA</a>)</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sB98fA"><img src="https://s3.ax1x.com/2021/01/15/sB98fA.md.png" alt="sB98fA.md.png"></a>](h</p>
 <p>基于规则的模糊集可以用于灰度变化和空间滤波。</p>
 
     </div>
