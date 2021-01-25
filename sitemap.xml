@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lqzizzl.github.io/2021/01/17/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E5%9B%9B%E7%AB%A0/</loc>
+    
+    <lastmod>2021-01-25</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://lqzizzl.github.io/2021/01/04/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%B8%89%E7%AB%A0/</loc>
     
     <lastmod>2021-01-15</lastmod>
@@ -60,7 +67,7 @@
 
   <url>
     <loc>http://lqzizzl.github.io/</loc>
-    <lastmod>2021-01-15</lastmod>
+    <lastmod>2021-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -68,28 +75,28 @@
   
   <url>
     <loc>http://lqzizzl.github.io/tags/%E6%8E%92%E5%BA%8F/</loc>
-    <lastmod>2021-01-15</lastmod>
+    <lastmod>2021-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://lqzizzl.github.io/tags/c/</loc>
-    <lastmod>2021-01-15</lastmod>
+    <lastmod>2021-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://lqzizzl.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</loc>
-    <lastmod>2021-01-15</lastmod>
+    <lastmod>2021-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://lqzizzl.github.io/tags/Matlab/</loc>
-    <lastmod>2021-01-15</lastmod>
+    <lastmod>2021-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -98,14 +105,14 @@
   
   <url>
     <loc>http://lqzizzl.github.io/categories/%E7%BC%96%E7%A8%8B%E9%A2%98/</loc>
-    <lastmod>2021-01-15</lastmod>
+    <lastmod>2021-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://lqzizzl.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</loc>
-    <lastmod>2021-01-15</lastmod>
+    <lastmod>2021-01-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

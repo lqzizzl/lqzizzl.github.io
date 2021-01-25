@@ -6,7 +6,7 @@
   <link href="http://lqzizzl.github.io/atom.xml" rel="self"/>
   
   <link href="http://lqzizzl.github.io/"/>
-  <updated>2021-01-15T13:16:56.437Z</updated>
+  <updated>2021-01-25T00:45:30.021Z</updated>
   <id>http://lqzizzl.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数字图像处理-第四章</title>
+    <link href="http://lqzizzl.github.io/2021/01/17/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E5%9B%9B%E7%AB%A0/"/>
+    <id>http://lqzizzl.github.io/2021/01/17/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E5%9B%9B%E7%AB%A0/</id>
+    <published>2021-01-17T03:10:43.000Z</published>
+    <updated>2021-01-25T00:45:30.021Z</updated>
+    
+    <content type="html"><![CDATA[<p>频率域滤波</p><p>傅里叶级数</p><p>定义：具有周期T的连续变量t 的周期函数f(t)可以被描述为乘以适当洗漱的正弦和和余弦和。 </p><p><a href="https://imgchr.com/i/sbWxOJ"><img src="https://s3.ax1x.com/2021/01/24/sbWxOJ.md.png" alt="sbWxOJ.md.png"></a></p><p>连续变量函数的傅里叶变换</p><p><a href="https://imgchr.com/i/sbfpwR"><img src="https://s3.ax1x.com/2021/01/24/sbfpwR.png" alt="sbfpwR.png"></a></p><a id="more"></a><p>u为连续变量。 欧拉公式变换后，可以写为： </p><p><a href="https://imgchr.com/i/sbf9T1"><img src="https://s3.ax1x.com/2021/01/24/sbf9T1.png" alt="sbf9T1.png"></a></p><p>傅里叶变换实例</p><p><a href="https://imgchr.com/i/sbfn0A"><img src="https://s3.ax1x.com/2021/01/24/sbfn0A.png" alt="sbfn0A.png"></a></p><p>卷积</p><p><a href="https://imgchr.com/i/sbf3p8"><img src="https://s3.ax1x.com/2021/01/24/sbf3p8.png" alt="sbf3p8.png"></a></p><p>其中，负号表示翻转，t是一个函数滑过另一个函数的位移，而τ是积分假变量。 </p><p><a href="https://imgchr.com/i/sbftmj"><img src="https://s3.ax1x.com/2021/01/24/sbftmj.png" alt="sbftmj.png"></a></p><p>空间域中两个函数的卷积的傅里叶变换等于两个函数的傅里叶变换在频率域中的乘积。 </p><p>取样和取样函数的傅里叶变换</p><p>取样作用：将连续函数转换为离散值序列。 </p><p>模拟取样是用 delta t 单位间隔冲激串作为取样函数去乘以f(t):</p><p><a href="https://imgchr.com/i/sbfr1U"><img src="https://s3.ax1x.com/2021/01/24/sbfr1U.png" alt="sbfr1U.png"></a></p><p><a href="https://imgchr.com/i/sbfdkq"><img src="https://s3.ax1x.com/2021/01/24/sbfdkq.png" alt="sbfdkq.png"></a></p><p>取样函数的傅里叶变换</p><p><a href="https://imgchr.com/i/sbfftx"><img src="https://s3.ax1x.com/2021/01/24/sbfftx.png" alt="sbfftx.png"></a></p><p>取样定理</p><p><a href="https://imgchr.com/i/sbfOAI"><img src="https://s3.ax1x.com/2021/01/24/sbfOAI.png" alt="sbfOAI.png"></a></p><p>以超过函数最高频率的两倍来采样可以还原原函数（香农采样定理）。 </p><p>单变量的离散傅里叶变换（DFT)</p><p><a href="https://imgchr.com/i/sbfz38"><img src="https://s3.ax1x.com/2021/01/24/sbfz38.png" alt="sbfz38.png"></a></p><p><a href="https://imgchr.com/i/sbhnvF"><img src="https://s3.ax1x.com/2021/01/24/sbhnvF.png" alt="sbhnvF.png"></a></p><p>取样和频率间隔间的关系</p><p><a href="https://imgchr.com/i/sbh1ER"><img src="https://s3.ax1x.com/2021/01/24/sbh1ER.png" alt="sbh1ER.png"></a></p><p>两个变量的函数的扩展</p><p>取样特性</p><p><a href="https://imgchr.com/i/sbhwbd"><img src="https://s3.ax1x.com/2021/01/24/sbhwbd.png" alt="sbhwbd.png"></a></p><p>离散冲击的取样特性在该冲激所在位置产生离散函数f(x ,y) 的值。 </p><p>简单函数的二维傅里叶变换实例</p><p><a href="https://imgchr.com/i/sbhDUI"><img src="https://s3.ax1x.com/2021/01/24/sbhDUI.png" alt="sbhDUI.png"></a></p><p>图像中的混淆</p><p>两种混淆现象：</p><p>空间混淆——欠采样造成，主要变现为人为引入缺陷，如线状特征中的锯齿，伪高光。</p><p>时间混淆——图像序列中图像间的时间间隔有关。 </p><p>图像内插与重采样</p><p><a href="https://imgchr.com/i/sbhc28"><img src="https://s3.ax1x.com/2021/01/24/sbhc28.png" alt="sbhc28.png"></a></p><p>当处理具有很强边缘内容的图像时，混淆的影响看起来是块状图像分量，称为锯齿。 </p><p><a href="https://imgchr.com/i/sbhRKg"><img src="https://s3.ax1x.com/2021/01/24/sbhRKg.png" alt="sbhRKg.png"></a></p><p>二维傅里叶反变换</p><p><a href="https://imgchr.com/i/sbh4Vs"><img src="https://s3.ax1x.com/2021/01/24/sbh4Vs.png" alt="sbh4Vs.png"></a></p><p>二维傅里叶变换的一些性质</p><p><a href="https://imgchr.com/i/sbhXqJ"><img src="https://s3.ax1x.com/2021/01/24/sbhXqJ.png" alt="sbhXqJ.png"></a></p><p><a href="https://imgchr.com/i/sb49G6"><img src="https://s3.ax1x.com/2021/01/24/sb49G6.png" alt="sb49G6.png"></a></p><p>频率域滤波基础</p><p>傅里叶变化的频率分量和图像中的亮度变化有关：低频对应图像中变换缓慢的灰度分量，高频对应图像中越来越快的灰度变化。 </p><p>处理频率域滤波器填充的一种方法是构建一个与图像尺寸相同的滤波器，计算该滤波器的IDFT得到相应的空间滤波器，在空间域填充这个空间滤波器，然后计算器DFT返回到频率域。 </p><p>频率域滤波步骤小结</p><p><a href="https://imgchr.com/i/sb4ZdA"><img src="https://s3.ax1x.com/2021/01/24/sb4ZdA.png" alt="sb4ZdA.png"></a></p><p>滤波实例</p><p><a href="https://imgchr.com/i/sb4nit"><img src="https://s3.ax1x.com/2021/01/24/sb4nit.png" alt="sb4nit.png"></a></p><p>空间和频率域滤波间的对应</p><p>空间域和频率域滤波之间的纽带是卷积定理，频率域滤波定义为滤波函数H(u,v)与输入图像的傅里叶变换F(u,v)的乘积。</p><p><a href="https://imgchr.com/i/sb4lQS"><img src="https://s3.ax1x.com/2021/01/24/sb4lQS.png" alt="sb4lQS.png"></a></p><p>使用频率域滤波器平滑图像</p><p>理想低通滤波器 （ILPF)</p><p><a href="https://imgchr.com/i/sb4Niq"><img src="https://s3.ax1x.com/2021/01/24/sb4Niq.png" alt="sb4Niq.png"></a></p><p>使用一个ILPF平滑图像</p><p><a href="https://imgchr.com/i/sb4aWV"><img src="https://s3.ax1x.com/2021/01/24/sb4aWV.png" alt="sb4aWV.png"></a></p><p>n阶巴特沃斯滤波器(BLPF)</p><p><a href="https://imgchr.com/i/sb4dzT"><img src="https://s3.ax1x.com/2021/01/24/sb4dzT.png" alt="sb4dzT.png"></a></p><p>滤波实例</p><p><a href="https://imgchr.com/i/sb46oR"><img src="https://s3.ax1x.com/2021/01/24/sb46oR.png" alt="sb46oR.png"></a></p><p>空间域的一阶巴特沃斯滤波器无振铃现象，随着阶数增高，振铃现象变得明显。 </p><p>高斯滤波器（GLPF)</p><p>无振铃现象，在需要严格控制低频与高频之间截止频率的过渡情况下，BLPF是更加合适的选择。 </p><p>使用频率域滤波器锐化图像（高通滤波） </p><p>理想高通滤波、n阶巴特沃斯高通滤波、高斯高通滤波</p><p>钝化模板、高提升滤波和高频强调滤波</p><p><a href="https://imgchr.com/i/sqNiad"><img src="https://s3.ax1x.com/2021/01/25/sqNiad.png" alt="sqNiad.png"></a></p><p>k=1时，钝化模板；k&gt;1时，高提升滤波器；</p><p>使用高频强调滤波增强图像实例</p><p><a href="https://imgchr.com/i/sqNFIA"><img src="https://s3.ax1x.com/2021/01/25/sqNFIA.png" alt="sqNFIA.png"></a></p><p>同态滤波</p><p><a href="https://imgchr.com/i/sqNAPI"><img src="https://s3.ax1x.com/2021/01/25/sqNAPI.png" alt="sqNAPI.png"></a></p><p>使用同态滤波器可更好地控制照射分量和反射分量，控制有指定滤波器函数H(u,v)影响傅里叶变换的低频和高频分量。 </p><p>选择性滤波</p><p>带阻滤波器和带通滤波器</p><p>陷波滤波器——拒绝事先定义的关于频率矩阵中心的一个邻域的频率，可用中心已被平移到陷波滤波器中心的高通滤波器的乘积来构造。 </p><p>陷波滤波器减少莫尔（波纹）模式实例</p><p><a href="https://imgchr.com/i/sqNEGt"><img src="https://s3.ax1x.com/2021/01/25/sqNEGt.png" alt="sqNEGt.png"></a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;频率域滤波&lt;/p&gt;
+&lt;p&gt;傅里叶级数&lt;/p&gt;
+&lt;p&gt;定义：具有周期T的连续变量t 的周期函数f(t)可以被描述为乘以适当洗漱的正弦和和余弦和。 &lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://imgchr.com/i/sbWxOJ&quot;&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/01/24/sbWxOJ.md.png&quot; alt=&quot;sbWxOJ.md.png&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;连续变量函数的傅里叶变换&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://imgchr.com/i/sbfpwR&quot;&gt;&lt;img src=&quot;https://s3.ax1x.com/2021/01/24/sbfpwR.png&quot; alt=&quot;sbfpwR.png&quot;&gt;&lt;/a&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="图像处理" scheme="http://lqzizzl.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    
+    <category term="图像处理" scheme="http://lqzizzl.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    <category term="Matlab" scheme="http://lqzizzl.github.io/tags/Matlab/"/>
+    
+  </entry>
   
   <entry>
     <title>数字图像处理-第三章</title>

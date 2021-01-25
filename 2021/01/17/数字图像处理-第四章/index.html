@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lqzizzl.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="频率域滤波 傅里叶级数 定义：具有周期T的连续变量t 的周期函数f(t)可以被描述为乘以适当洗漱的正弦和和余弦和。   连续变量函数的傅里叶变换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数字图像处理-第四章">
+<meta property="og:url" content="http://lqzizzl.github.io/2021/01/17/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E5%9B%9B%E7%AB%A0/index.html">
+<meta property="og:site_name" content="刘强的博客">
+<meta property="og:description" content="频率域滤波 傅里叶级数 定义：具有周期T的连续变量t 的周期函数f(t)可以被描述为乘以适当洗漱的正弦和和余弦和。   连续变量函数的傅里叶变换">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbWxOJ.md.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbfpwR.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbf9T1.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbfn0A.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbf3p8.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbftmj.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbfr1U.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbfdkq.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbfftx.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbfOAI.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbfz38.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbhnvF.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbh1ER.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbhwbd.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbhDUI.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbhc28.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbhRKg.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbh4Vs.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbhXqJ.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb49G6.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb4ZdA.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb4nit.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb4lQS.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb4Niq.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb4aWV.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb4dzT.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb46oR.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/25/sqNiad.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/25/sqNFIA.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/25/sqNAPI.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/25/sqNEGt.png">
+<meta property="article:published_time" content="2021-01-17T03:10:43.000Z">
+<meta property="article:modified_time" content="2021-01-25T00:45:30.021Z">
+<meta property="article:author" content="E-Dreamer">
+<meta property="article:tag" content="图像处理">
+<meta property="article:tag" content="Matlab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/24/sbWxOJ.md.png">
+
+<link rel="canonical" href="http://lqzizzl.github.io/2021/01/17/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E5%9B%9B%E7%AB%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>数字图像处理-第四章 | 刘强的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="刘强的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">刘强的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">脚踏实地，仰望星空</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">2</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">5</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lqzizzl.github.io/2021/01/17/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E5%9B%9B%E7%AB%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s3.ax1x.com/2020/12/28/rTOXjA.jpg">
+      <meta itemprop="name" content="E-Dreamer">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘强的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数字图像处理-第四章
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-17 11:10:43" itemprop="dateCreated datePublished" datetime="2021-01-17T11:10:43+08:00">2021-01-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-25 08:45:30" itemprop="dateModified" datetime="2021-01-25T08:45:30+08:00">2021-01-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">图像处理</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>频率域滤波</p>
+<p>傅里叶级数</p>
+<p>定义：具有周期T的连续变量t 的周期函数f(t)可以被描述为乘以适当洗漱的正弦和和余弦和。 </p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbWxOJ"><img src="https://s3.ax1x.com/2021/01/24/sbWxOJ.md.png" alt="sbWxOJ.md.png"></a></p>
+<p>连续变量函数的傅里叶变换</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbfpwR"><img src="https://s3.ax1x.com/2021/01/24/sbfpwR.png" alt="sbfpwR.png"></a></p>
+<a id="more"></a>
+
+<p>u为连续变量。 欧拉公式变换后，可以写为： </p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbf9T1"><img src="https://s3.ax1x.com/2021/01/24/sbf9T1.png" alt="sbf9T1.png"></a></p>
+<p>傅里叶变换实例</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbfn0A"><img src="https://s3.ax1x.com/2021/01/24/sbfn0A.png" alt="sbfn0A.png"></a></p>
+<p>卷积</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbf3p8"><img src="https://s3.ax1x.com/2021/01/24/sbf3p8.png" alt="sbf3p8.png"></a></p>
+<p>其中，负号表示翻转，t是一个函数滑过另一个函数的位移，而τ是积分假变量。 </p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbftmj"><img src="https://s3.ax1x.com/2021/01/24/sbftmj.png" alt="sbftmj.png"></a></p>
+<p>空间域中两个函数的卷积的傅里叶变换等于两个函数的傅里叶变换在频率域中的乘积。 </p>
+<p>取样和取样函数的傅里叶变换</p>
+<p>取样作用：将连续函数转换为离散值序列。 </p>
+<p>模拟取样是用 delta t 单位间隔冲激串作为取样函数去乘以f(t):</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbfr1U"><img src="https://s3.ax1x.com/2021/01/24/sbfr1U.png" alt="sbfr1U.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbfdkq"><img src="https://s3.ax1x.com/2021/01/24/sbfdkq.png" alt="sbfdkq.png"></a></p>
+<p>取样函数的傅里叶变换</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbfftx"><img src="https://s3.ax1x.com/2021/01/24/sbfftx.png" alt="sbfftx.png"></a></p>
+<p>取样定理</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbfOAI"><img src="https://s3.ax1x.com/2021/01/24/sbfOAI.png" alt="sbfOAI.png"></a></p>
+<p>以超过函数最高频率的两倍来采样可以还原原函数（香农采样定理）。 </p>
+<p>单变量的离散傅里叶变换（DFT)</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbfz38"><img src="https://s3.ax1x.com/2021/01/24/sbfz38.png" alt="sbfz38.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbhnvF"><img src="https://s3.ax1x.com/2021/01/24/sbhnvF.png" alt="sbhnvF.png"></a></p>
+<p>取样和频率间隔间的关系</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbh1ER"><img src="https://s3.ax1x.com/2021/01/24/sbh1ER.png" alt="sbh1ER.png"></a></p>
+<p>两个变量的函数的扩展</p>
+<p>取样特性</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbhwbd"><img src="https://s3.ax1x.com/2021/01/24/sbhwbd.png" alt="sbhwbd.png"></a></p>
+<p>离散冲击的取样特性在该冲激所在位置产生离散函数f(x ,y) 的值。 </p>
+<p>简单函数的二维傅里叶变换实例</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbhDUI"><img src="https://s3.ax1x.com/2021/01/24/sbhDUI.png" alt="sbhDUI.png"></a></p>
+<p>图像中的混淆</p>
+<p>两种混淆现象：</p>
+<p>空间混淆——欠采样造成，主要变现为人为引入缺陷，如线状特征中的锯齿，伪高光。</p>
+<p>时间混淆——图像序列中图像间的时间间隔有关。 </p>
+<p>图像内插与重采样</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbhc28"><img src="https://s3.ax1x.com/2021/01/24/sbhc28.png" alt="sbhc28.png"></a></p>
+<p>当处理具有很强边缘内容的图像时，混淆的影响看起来是块状图像分量，称为锯齿。 </p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbhRKg"><img src="https://s3.ax1x.com/2021/01/24/sbhRKg.png" alt="sbhRKg.png"></a></p>
+<p>二维傅里叶反变换</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbh4Vs"><img src="https://s3.ax1x.com/2021/01/24/sbh4Vs.png" alt="sbh4Vs.png"></a></p>
+<p>二维傅里叶变换的一些性质</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbhXqJ"><img src="https://s3.ax1x.com/2021/01/24/sbhXqJ.png" alt="sbhXqJ.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb49G6"><img src="https://s3.ax1x.com/2021/01/24/sb49G6.png" alt="sb49G6.png"></a></p>
+<p>频率域滤波基础</p>
+<p>傅里叶变化的频率分量和图像中的亮度变化有关：低频对应图像中变换缓慢的灰度分量，高频对应图像中越来越快的灰度变化。 </p>
+<p>处理频率域滤波器填充的一种方法是构建一个与图像尺寸相同的滤波器，计算该滤波器的IDFT得到相应的空间滤波器，在空间域填充这个空间滤波器，然后计算器DFT返回到频率域。 </p>
+<p>频率域滤波步骤小结</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb4ZdA"><img src="https://s3.ax1x.com/2021/01/24/sb4ZdA.png" alt="sb4ZdA.png"></a></p>
+<p>滤波实例</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb4nit"><img src="https://s3.ax1x.com/2021/01/24/sb4nit.png" alt="sb4nit.png"></a></p>
+<p>空间和频率域滤波间的对应</p>
+<p>空间域和频率域滤波之间的纽带是卷积定理，频率域滤波定义为滤波函数H(u,v)与输入图像的傅里叶变换F(u,v)的乘积。</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb4lQS"><img src="https://s3.ax1x.com/2021/01/24/sb4lQS.png" alt="sb4lQS.png"></a></p>
+<p>使用频率域滤波器平滑图像</p>
+<p>理想低通滤波器 （ILPF)</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb4Niq"><img src="https://s3.ax1x.com/2021/01/24/sb4Niq.png" alt="sb4Niq.png"></a></p>
+<p>使用一个ILPF平滑图像</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb4aWV"><img src="https://s3.ax1x.com/2021/01/24/sb4aWV.png" alt="sb4aWV.png"></a></p>
+<p>n阶巴特沃斯滤波器(BLPF)</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb4dzT"><img src="https://s3.ax1x.com/2021/01/24/sb4dzT.png" alt="sb4dzT.png"></a></p>
+<p>滤波实例</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb46oR"><img src="https://s3.ax1x.com/2021/01/24/sb46oR.png" alt="sb46oR.png"></a></p>
+<p>空间域的一阶巴特沃斯滤波器无振铃现象，随着阶数增高，振铃现象变得明显。 </p>
+<p>高斯滤波器（GLPF)</p>
+<p>无振铃现象，在需要严格控制低频与高频之间截止频率的过渡情况下，BLPF是更加合适的选择。 </p>
+<p>使用频率域滤波器锐化图像（高通滤波） </p>
+<p>理想高通滤波、n阶巴特沃斯高通滤波、高斯高通滤波</p>
+<p>钝化模板、高提升滤波和高频强调滤波</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sqNiad"><img src="https://s3.ax1x.com/2021/01/25/sqNiad.png" alt="sqNiad.png"></a></p>
+<p>k=1时，钝化模板；k&gt;1时，高提升滤波器；</p>
+<p>使用高频强调滤波增强图像实例</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sqNFIA"><img src="https://s3.ax1x.com/2021/01/25/sqNFIA.png" alt="sqNFIA.png"></a></p>
+<p>同态滤波</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sqNAPI"><img src="https://s3.ax1x.com/2021/01/25/sqNAPI.png" alt="sqNAPI.png"></a></p>
+<p>使用同态滤波器可更好地控制照射分量和反射分量，控制有指定滤波器函数H(u,v)影响傅里叶变换的低频和高频分量。 </p>
+<p>选择性滤波</p>
+<p>带阻滤波器和带通滤波器</p>
+<p>陷波滤波器——拒绝事先定义的关于频率矩阵中心的一个邻域的频率，可用中心已被平移到陷波滤波器中心的高通滤波器的乘积来构造。 </p>
+<p>陷波滤波器减少莫尔（波纹）模式实例</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sqNEGt"><img src="https://s3.ax1x.com/2021/01/25/sqNEGt.png" alt="sqNEGt.png"></a></p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+	  
+	    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+	  
+	</div>
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="E-Dreamer 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="E-Dreamer 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>E-Dreamer
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://lqzizzl.github.io/2021/01/17/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E5%9B%9B%E7%AB%A0/" title="数字图像处理-第四章">http://lqzizzl.github.io/2021/01/17/数字图像处理-第四章/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag"># 图像处理</a>
+              <a href="/tags/Matlab/" rel="tag"># Matlab</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/04/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%B8%89%E7%AB%A0/" rel="prev" title="数字图像处理-第三章">
+      <i class="fa fa-chevron-left"></i> 数字图像处理-第三章
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="E-Dreamer"
+      src="https://s3.ax1x.com/2020/12/28/rTOXjA.jpg">
+  <p class="site-author-name" itemprop="name">E-Dreamer</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/E-Dreamer-LQ/" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;E-Dreamer-LQ&#x2F;" rel="noopener" target="_blank"><i class="fa fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lqzizzl@126.com" title="E-Mail → mailto:lqzizzl@126.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/E-Dreamer-Blogs/" title="cnblogs → https:&#x2F;&#x2F;www.cnblogs.com&#x2F;E-Dreamer-Blogs&#x2F;" rel="noopener" target="_blank"><i class="fa fa-share-alt fa-fw"></i>cnblogs</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">刘强</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='0,0,0' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
