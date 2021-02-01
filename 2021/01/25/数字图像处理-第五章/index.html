@@ -20,53 +20,36 @@
     var CONFIG = {"hostname":"lqzizzl.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="频率域滤波 傅里叶级数 定义：具有周期T的连续变量t 的周期函数f(t)可以被描述为乘以适当洗漱的正弦和和余弦和。   连续变量函数的傅里叶变换">
+  <meta name="description" content="图像复原与重建 图像退化&#x2F;复原过程模型 空域退化过程：   频域退化过程  退化与复原基本原理  噪声模型 噪声的空间域频率特性 白噪声——傅里叶谱是常量的噪声。 一些重要的噪声概率密度函数 高斯噪声、瑞利噪声、伽马噪声、指数噪声、均匀噪声、椒盐（脉冲）噪声、 噪声图像及其直方图  由脉冲噪声污染的图像的椒盐招生的外观是唯一一种引起退化、视觉上可区分的噪声类型。  周期噪声 周期噪声可通过频率域">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数字图像处理-第四章">
-<meta property="og:url" content="http://lqzizzl.github.io/2021/01/17/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E5%9B%9B%E7%AB%A0/index.html">
+<meta property="og:title" content="数字图像处理-第五章">
+<meta property="og:url" content="http://lqzizzl.github.io/2021/01/25/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%BA%94%E7%AB%A0/index.html">
 <meta property="og:site_name" content="刘强的博客">
-<meta property="og:description" content="频率域滤波 傅里叶级数 定义：具有周期T的连续变量t 的周期函数f(t)可以被描述为乘以适当洗漱的正弦和和余弦和。   连续变量函数的傅里叶变换">
+<meta property="og:description" content="图像复原与重建 图像退化&#x2F;复原过程模型 空域退化过程：   频域退化过程  退化与复原基本原理  噪声模型 噪声的空间域频率特性 白噪声——傅里叶谱是常量的噪声。 一些重要的噪声概率密度函数 高斯噪声、瑞利噪声、伽马噪声、指数噪声、均匀噪声、椒盐（脉冲）噪声、 噪声图像及其直方图  由脉冲噪声污染的图像的椒盐招生的外观是唯一一种引起退化、视觉上可区分的噪声类型。  周期噪声 周期噪声可通过频率域">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbWxOJ.md.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbfpwR.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbf9T1.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbfn0A.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbf3p8.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbftmj.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbfr1U.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbfdkq.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbfftx.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbfOAI.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbfz38.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbhnvF.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbh1ER.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbhwbd.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbhDUI.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbhc28.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbhRKg.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbh4Vs.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sbhXqJ.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb49G6.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb4ZdA.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb4nit.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb4lQS.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb4Niq.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb4aWV.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb4dzT.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/24/sb46oR.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/25/sqNiad.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/25/sqNFIA.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/25/sqNAPI.png">
-<meta property="og:image" content="https://s3.ax1x.com/2021/01/25/sqNEGt.png">
-<meta property="article:published_time" content="2021-01-17T03:10:43.000Z">
-<meta property="article:modified_time" content="2021-01-25T00:45:30.021Z">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112410773.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112433596.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112514152.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129113513501.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129145552926.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095115516.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095547478.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095639466.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101046878.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101919410.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101934499.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101955531.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131102745841.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131103820692.png">
+<meta property="article:published_time" content="2021-01-25T02:38:13.000Z">
+<meta property="article:modified_time" content="2021-01-31T02:53:25.453Z">
 <meta property="article:author" content="E-Dreamer">
 <meta property="article:tag" content="图像处理">
 <meta property="article:tag" content="Matlab">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s3.ax1x.com/2021/01/24/sbWxOJ.md.png">
+<meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112410773.png">
 
-<link rel="canonical" href="http://lqzizzl.github.io/2021/01/17/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E5%9B%9B%E7%AB%A0/">
+<link rel="canonical" href="http://lqzizzl.github.io/2021/01/25/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%BA%94%E7%AB%A0/">
 
 
 <script id="page-configurations">
@@ -79,7 +62,7 @@
   };
 </script>
 
-  <title>数字图像处理-第四章 | 刘强的博客</title>
+  <title>数字图像处理-第五章 | 刘强的博客</title>
   
 
 
@@ -201,7 +184,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://lqzizzl.github.io/2021/01/17/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E5%9B%9B%E7%AB%A0/">
+    <link itemprop="mainEntityOfPage" href="http://lqzizzl.github.io/2021/01/25/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%BA%94%E7%AB%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s3.ax1x.com/2020/12/28/rTOXjA.jpg">
@@ -214,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          数字图像处理-第四章
+          数字图像处理-第五章
         </h1>
 
         <div class="post-meta">
@@ -224,14 +207,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-01-17 11:10:43" itemprop="dateCreated datePublished" datetime="2021-01-17T11:10:43+08:00">2021-01-17</time>
+              <time title="创建时间：2021-01-25 10:38:13" itemprop="dateCreated datePublished" datetime="2021-01-25T10:38:13+08:00">2021-01-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-25 08:45:30" itemprop="dateModified" datetime="2021-01-25T08:45:30+08:00">2021-01-25</time>
+                <time title="修改时间：2021-01-31 10:53:25" itemprop="dateModified" datetime="2021-01-31T10:53:25+08:00">2021-01-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -254,94 +237,61 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>频率域滤波</p>
-<p>傅里叶级数</p>
-<p>定义：具有周期T的连续变量t 的周期函数f(t)可以被描述为乘以适当洗漱的正弦和和余弦和。 </p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbWxOJ"><img src="https://s3.ax1x.com/2021/01/24/sbWxOJ.md.png" alt="sbWxOJ.md.png"></a></p>
-<p>连续变量函数的傅里叶变换</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbfpwR"><img src="https://s3.ax1x.com/2021/01/24/sbfpwR.png" alt="sbfpwR.png"></a></p>
-<a id="more"></a>
-
-<p>u为连续变量。 欧拉公式变换后，可以写为： </p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbf9T1"><img src="https://s3.ax1x.com/2021/01/24/sbf9T1.png" alt="sbf9T1.png"></a></p>
-<p>傅里叶变换实例</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbfn0A"><img src="https://s3.ax1x.com/2021/01/24/sbfn0A.png" alt="sbfn0A.png"></a></p>
-<p>卷积</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbf3p8"><img src="https://s3.ax1x.com/2021/01/24/sbf3p8.png" alt="sbf3p8.png"></a></p>
-<p>其中，负号表示翻转，t是一个函数滑过另一个函数的位移，而τ是积分假变量。 </p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbftmj"><img src="https://s3.ax1x.com/2021/01/24/sbftmj.png" alt="sbftmj.png"></a></p>
-<p>空间域中两个函数的卷积的傅里叶变换等于两个函数的傅里叶变换在频率域中的乘积。 </p>
-<p>取样和取样函数的傅里叶变换</p>
-<p>取样作用：将连续函数转换为离散值序列。 </p>
-<p>模拟取样是用 delta t 单位间隔冲激串作为取样函数去乘以f(t):</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbfr1U"><img src="https://s3.ax1x.com/2021/01/24/sbfr1U.png" alt="sbfr1U.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbfdkq"><img src="https://s3.ax1x.com/2021/01/24/sbfdkq.png" alt="sbfdkq.png"></a></p>
-<p>取样函数的傅里叶变换</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbfftx"><img src="https://s3.ax1x.com/2021/01/24/sbfftx.png" alt="sbfftx.png"></a></p>
-<p>取样定理</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbfOAI"><img src="https://s3.ax1x.com/2021/01/24/sbfOAI.png" alt="sbfOAI.png"></a></p>
-<p>以超过函数最高频率的两倍来采样可以还原原函数（香农采样定理）。 </p>
-<p>单变量的离散傅里叶变换（DFT)</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbfz38"><img src="https://s3.ax1x.com/2021/01/24/sbfz38.png" alt="sbfz38.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbhnvF"><img src="https://s3.ax1x.com/2021/01/24/sbhnvF.png" alt="sbhnvF.png"></a></p>
-<p>取样和频率间隔间的关系</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbh1ER"><img src="https://s3.ax1x.com/2021/01/24/sbh1ER.png" alt="sbh1ER.png"></a></p>
-<p>两个变量的函数的扩展</p>
-<p>取样特性</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbhwbd"><img src="https://s3.ax1x.com/2021/01/24/sbhwbd.png" alt="sbhwbd.png"></a></p>
-<p>离散冲击的取样特性在该冲激所在位置产生离散函数f(x ,y) 的值。 </p>
-<p>简单函数的二维傅里叶变换实例</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbhDUI"><img src="https://s3.ax1x.com/2021/01/24/sbhDUI.png" alt="sbhDUI.png"></a></p>
-<p>图像中的混淆</p>
-<p>两种混淆现象：</p>
-<p>空间混淆——欠采样造成，主要变现为人为引入缺陷，如线状特征中的锯齿，伪高光。</p>
-<p>时间混淆——图像序列中图像间的时间间隔有关。 </p>
-<p>图像内插与重采样</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbhc28"><img src="https://s3.ax1x.com/2021/01/24/sbhc28.png" alt="sbhc28.png"></a></p>
-<p>当处理具有很强边缘内容的图像时，混淆的影响看起来是块状图像分量，称为锯齿。 </p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbhRKg"><img src="https://s3.ax1x.com/2021/01/24/sbhRKg.png" alt="sbhRKg.png"></a></p>
-<p>二维傅里叶反变换</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbh4Vs"><img src="https://s3.ax1x.com/2021/01/24/sbh4Vs.png" alt="sbh4Vs.png"></a></p>
-<p>二维傅里叶变换的一些性质</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sbhXqJ"><img src="https://s3.ax1x.com/2021/01/24/sbhXqJ.png" alt="sbhXqJ.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb49G6"><img src="https://s3.ax1x.com/2021/01/24/sb49G6.png" alt="sb49G6.png"></a></p>
-<p>频率域滤波基础</p>
-<p>傅里叶变化的频率分量和图像中的亮度变化有关：低频对应图像中变换缓慢的灰度分量，高频对应图像中越来越快的灰度变化。 </p>
-<p>处理频率域滤波器填充的一种方法是构建一个与图像尺寸相同的滤波器，计算该滤波器的IDFT得到相应的空间滤波器，在空间域填充这个空间滤波器，然后计算器DFT返回到频率域。 </p>
-<p>频率域滤波步骤小结</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb4ZdA"><img src="https://s3.ax1x.com/2021/01/24/sb4ZdA.png" alt="sb4ZdA.png"></a></p>
-<p>滤波实例</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb4nit"><img src="https://s3.ax1x.com/2021/01/24/sb4nit.png" alt="sb4nit.png"></a></p>
-<p>空间和频率域滤波间的对应</p>
-<p>空间域和频率域滤波之间的纽带是卷积定理，频率域滤波定义为滤波函数H(u,v)与输入图像的傅里叶变换F(u,v)的乘积。</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb4lQS"><img src="https://s3.ax1x.com/2021/01/24/sb4lQS.png" alt="sb4lQS.png"></a></p>
-<p>使用频率域滤波器平滑图像</p>
-<p>理想低通滤波器 （ILPF)</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb4Niq"><img src="https://s3.ax1x.com/2021/01/24/sb4Niq.png" alt="sb4Niq.png"></a></p>
-<p>使用一个ILPF平滑图像</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb4aWV"><img src="https://s3.ax1x.com/2021/01/24/sb4aWV.png" alt="sb4aWV.png"></a></p>
-<p>n阶巴特沃斯滤波器(BLPF)</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb4dzT"><img src="https://s3.ax1x.com/2021/01/24/sb4dzT.png" alt="sb4dzT.png"></a></p>
-<p>滤波实例</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sb46oR"><img src="https://s3.ax1x.com/2021/01/24/sb46oR.png" alt="sb46oR.png"></a></p>
-<p>空间域的一阶巴特沃斯滤波器无振铃现象，随着阶数增高，振铃现象变得明显。 </p>
-<p>高斯滤波器（GLPF)</p>
-<p>无振铃现象，在需要严格控制低频与高频之间截止频率的过渡情况下，BLPF是更加合适的选择。 </p>
-<p>使用频率域滤波器锐化图像（高通滤波） </p>
-<p>理想高通滤波、n阶巴特沃斯高通滤波、高斯高通滤波</p>
-<p>钝化模板、高提升滤波和高频强调滤波</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sqNiad"><img src="https://s3.ax1x.com/2021/01/25/sqNiad.png" alt="sqNiad.png"></a></p>
-<p>k=1时，钝化模板；k&gt;1时，高提升滤波器；</p>
-<p>使用高频强调滤波增强图像实例</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sqNFIA"><img src="https://s3.ax1x.com/2021/01/25/sqNFIA.png" alt="sqNFIA.png"></a></p>
-<p>同态滤波</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sqNAPI"><img src="https://s3.ax1x.com/2021/01/25/sqNAPI.png" alt="sqNAPI.png"></a></p>
-<p>使用同态滤波器可更好地控制照射分量和反射分量，控制有指定滤波器函数H(u,v)影响傅里叶变换的低频和高频分量。 </p>
-<p>选择性滤波</p>
-<p>带阻滤波器和带通滤波器</p>
-<p>陷波滤波器——拒绝事先定义的关于频率矩阵中心的一个邻域的频率，可用中心已被平移到陷波滤波器中心的高通滤波器的乘积来构造。 </p>
-<p>陷波滤波器减少莫尔（波纹）模式实例</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sqNEGt"><img src="https://s3.ax1x.com/2021/01/25/sqNEGt.png" alt="sqNEGt.png"></a></p>
+        <p> 图像复原与重建</p>
+<p>图像退化/复原过程模型</p>
+<p>空域退化过程： </p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112410773.png" alt="image-20210129112410773"></p>
+<p>频域退化过程</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112433596.png" alt="image-20210129112433596"></p>
+<p>退化与复原基本原理</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112514152.png" alt="image-20210129112514152"></p>
+<p>噪声模型</p>
+<p>噪声的空间域频率特性</p>
+<p>白噪声——傅里叶谱是常量的噪声。</p>
+<p>一些重要的噪声概率密度函数</p>
+<p>高斯噪声、瑞利噪声、伽马噪声、指数噪声、均匀噪声、椒盐（脉冲）噪声、</p>
+<p>噪声图像及其直方图</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129113513501.png" alt="image-20210129113513501"></p>
+<p>由脉冲噪声污染的图像的椒盐招生的外观是唯一一种引起退化、视觉上可区分的噪声类型。 </p>
+<p>周期噪声</p>
+<p>周期噪声可通过频率域滤波来显著地减少，如果空间域中正弦波的振幅足够强，我们在改图像的谱中将看到图像中每个正弦波的脉冲对。 </p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129145552926.png" alt="image-20210129145552926"></p>
+<p>只存在噪声的复原——空间滤波</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095115516.png" alt="image-20210131095115516"></p>
+<p>均值滤波器： 算术均值滤波器 、几何均值滤波器 、谐波均值滤波器、 逆谐波均值滤波器</p>
+<p>均值滤波器实例</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095547478.png" alt="image-20210131095547478"></p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095639466.png" alt="image-20210131095639466"></p>
+<p>总结：算术均值滤波器和几何均值滤波器更加适合于处理高斯或者均匀随机噪声， 逆谐波均值滤波器更适合于处理脉冲噪声。 通过明确噪声是暗噪声还是亮噪声，以便于为Q选择正确的符号。 </p>
+<p>统计排序滤波器</p>
+<p>统计排序滤波器是空间域滤波器，空间滤波器的响应基于由该滤波器包围的图像区域中的像素值的顺序，排序结果决定滤波器的响应。 </p>
+<p>主要有：中值滤波器、最大值最小值滤波器、中点滤波器、修正的阿尔法均值滤波器</p>
+<p>中值滤波器和修正的阿尔法滤波器针对脉冲噪声相比算术和几何均值滤波器有更好的作用。 </p>
+<p>自适应滤波器</p>
+<p>随机变量最简单的度量是其均值和方差，均值为区域内平均灰度的度量，方差为该区域的对比度的度量。 </p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101046878.png" alt="image-20210131101046878"></p>
+<p>自适应中值滤波器</p>
+<p>算法过程： </p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101919410.png" alt="image-20210131101919410"></p>
+<p>目的：确定中值滤波器的输出 Zmed 是否是一个脉冲,如果不是脉冲则转到 B,如果是 则扩大窗口尺寸。</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101934499.png" alt="image-20210131101934499"></p>
+<p>其中： </p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101955531.png" alt="image-20210131101955531"></p>
+<p>算法主要作用：（1）去除椒盐噪声；（2）平滑其他非脉冲噪声；（3）减少诸如物体边界细化或者粗化等失真。 </p>
+<p>自适应中值滤波实例</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131102745841.png" alt="image-20210131102745841"></p>
+<p>（b)中噪声有被有效消除， 但是导致了图像细节的损失。 </p>
+<p>用频率域滤波消除周期噪声</p>
+<p>带阻滤波器</p>
+<p>应用：在频率域噪声分量的一般位置近似已知的应用中消除噪声。 </p>
+<p>带通滤波器</p>
+<p>带通滤波器帮助屏蔽了噪声模式，简化了噪声分析，与图像内容无关。 </p>
+<p>陷波滤波器</p>
+<p>陷波滤波器阻止事先定义的中心频率的邻域内的频率。 </p>
+<p>由于傅里叶变换的对称性，要获得有效的结果，陷波滤波器必须以关于原点对称的形式出现。 </p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131103820692.png" alt="image-20210131103820692"></p>
+<p>最佳陷波滤波</p>
+<p>解决多种干扰分量，在滤波可以避免消除太多的图像信息。</p>
 
     </div>
 
@@ -388,7 +338,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://lqzizzl.github.io/2021/01/17/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E5%9B%9B%E7%AB%A0/" title="数字图像处理-第四章">http://lqzizzl.github.io/2021/01/17/数字图像处理-第四章/</a>
+    <a href="http://lqzizzl.github.io/2021/01/25/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%BA%94%E7%AB%A0/" title="数字图像处理-第五章">http://lqzizzl.github.io/2021/01/25/数字图像处理-第五章/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -409,12 +359,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/04/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%B8%89%E7%AB%A0/" rel="prev" title="数字图像处理-第三章">
-      <i class="fa fa-chevron-left"></i> 数字图像处理-第三章
+    <a href="/2021/01/17/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E5%9B%9B%E7%AB%A0/" rel="prev" title="数字图像处理-第四章">
+      <i class="fa fa-chevron-left"></i> 数字图像处理-第四章
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/01/25/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%BA%94%E7%AB%A0/" rel="next" title="数字图像处理-第五章">
-      数字图像处理-第五章 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/01/29/PicGO%E4%B8%8ETypora%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8/" rel="next" title="PicGO与Typora配置图床使用">
+      PicGO与Typora配置图床使用 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

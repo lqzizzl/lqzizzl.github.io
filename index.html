@@ -122,17 +122,17 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">4</span></a>
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签<span class="badge">5</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">2</span></a>
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类<span class="badge">3</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">5</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">8</span></a>
 
   </li>
   </ul>
@@ -158,6 +158,294 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lqzizzl.github.io/2021/02/01/%E4%BD%BF%E7%94%A8dash%E5%92%8Cpython%E5%88%9B%E5%BB%BAapp%E7%A4%BA%E4%BE%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s3.ax1x.com/2020/12/28/rTOXjA.jpg">
+      <meta itemprop="name" content="E-Dreamer">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘强的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/01/%E4%BD%BF%E7%94%A8dash%E5%92%8Cpython%E5%88%9B%E5%BB%BAapp%E7%A4%BA%E4%BE%8B/" class="post-title-link" itemprop="url">使用dash和python创建app示例</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-02-01 10:35:57 / 修改时间：10:46:39" itemprop="dateCreated datePublished" datetime="2021-02-01T10:35:57+08:00">2021-02-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本帖参考： <a target="_blank" rel="noopener" href="https://blog.csdn.net/charizard90/article/details/105232590">https://blog.csdn.net/charizard90/article/details/105232590</a></p>
+<p>Dash是一款用来搭建Web应用的Python框架，基于Flask,Plotly,js和React。<br>Dash的官网是<a target="_blank" rel="noopener" href="https://dash.plotly.com/%E3%80%82">https://dash.plotly.com/。</a><br>Dash的安装非常简单，直接通过<code>pip install dash</code>就能安装完成。<br>根据官网教程创建一个app.py。</p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/img/image-20210201103722438.png" alt="image-20210201103722438"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> dash</span><br><span class="line"><span class="keyword">import</span> dash_core_components <span class="keyword">as</span> dcc</span><br><span class="line"><span class="keyword">import</span> dash_html_components <span class="keyword">as</span> html</span><br><span class="line"></span><br><span class="line">external_stylesheets = [<span class="string">&#x27;https://codepen.io/chriddyp/pen/bWLwgP.css&#x27;</span>]</span><br><span class="line"></span><br><span class="line">app = dash.Dash(__name__, external_stylesheets=external_stylesheets)</span><br><span class="line"></span><br><span class="line">app.layout = html.Div(children=[</span><br><span class="line">    html.H1(children=<span class="string">&#x27;Hello Dash&#x27;</span>),</span><br><span class="line"></span><br><span class="line">    html.Div(children=<span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        Dash: A web application framework for Python.</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span>),</span><br><span class="line"></span><br><span class="line">    dcc.Graph(</span><br><span class="line">        <span class="built_in">id</span>=<span class="string">&#x27;example-graph&#x27;</span>,</span><br><span class="line">        figure=&#123;</span><br><span class="line">            <span class="string">&#x27;data&#x27;</span>: [</span><br><span class="line">                &#123;<span class="string">&#x27;x&#x27;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="string">&#x27;y&#x27;</span>: [<span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>], <span class="string">&#x27;type&#x27;</span>: <span class="string">&#x27;bar&#x27;</span>, <span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;SF&#x27;</span>&#125;,</span><br><span class="line">                &#123;<span class="string">&#x27;x&#x27;</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], <span class="string">&#x27;y&#x27;</span>: [<span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>], <span class="string">&#x27;type&#x27;</span>: <span class="string">&#x27;bar&#x27;</span>, <span class="string">&#x27;name&#x27;</span>: <span class="string">u&#x27;Montréal&#x27;</span>&#125;,</span><br><span class="line">            ],</span><br><span class="line">            <span class="string">&#x27;layout&#x27;</span>: &#123;</span><br><span class="line">                <span class="string">&#x27;title&#x27;</span>: <span class="string">&#x27;Dash Data Visualization&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run_server(debug=<span class="literal">True</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>运行<code>python app.py</code>。<br>在浏览器中访问<a target="_blank" rel="noopener" href="http://127.0.0.1:8050/">http://127.0.0.1:8050</a>，第一个Dash应用就成功创建了。</p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/img/image-20210201104518601.png" alt="image-20210201104518601"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+	  
+	</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lqzizzl.github.io/2021/01/29/PicGO%E4%B8%8ETypora%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s3.ax1x.com/2020/12/28/rTOXjA.jpg">
+      <meta itemprop="name" content="E-Dreamer">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘强的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/29/PicGO%E4%B8%8ETypora%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">PicGO与Typora配置图床使用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-29 09:51:18 / 修改时间：20:46:13" itemprop="dateCreated datePublished" datetime="2021-01-29T09:51:18+08:00">2021-01-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p> 以往写完博客都是一个一个图像上传，使用Picgo解决了以往typora写博客时图片地址为本地，手机查看或者同步到网易云笔记的时候图片无法显示的问题，由此，把图片上传到远程服务器存储就可以完美解决这个问题。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/29/PicGO%E4%B8%8ETypora%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BA%8A%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+	  
+	</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lqzizzl.github.io/2021/01/25/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%BA%94%E7%AB%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s3.ax1x.com/2020/12/28/rTOXjA.jpg">
+      <meta itemprop="name" content="E-Dreamer">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="刘强的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/25/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%BA%94%E7%AB%A0/" class="post-title-link" itemprop="url">数字图像处理-第五章</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-25 10:38:13" itemprop="dateCreated datePublished" datetime="2021-01-25T10:38:13+08:00">2021-01-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-31 10:53:25" itemprop="dateModified" datetime="2021-01-31T10:53:25+08:00">2021-01-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">图像处理</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p> 图像复原与重建</p>
+<p>图像退化/复原过程模型</p>
+<p>空域退化过程： </p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112410773.png" alt="image-20210129112410773"></p>
+<p>频域退化过程</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112433596.png" alt="image-20210129112433596"></p>
+<p>退化与复原基本原理</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112514152.png" alt="image-20210129112514152"></p>
+<p>噪声模型</p>
+<p>噪声的空间域频率特性</p>
+<p>白噪声——傅里叶谱是常量的噪声。</p>
+<p>一些重要的噪声概率密度函数</p>
+<p>高斯噪声、瑞利噪声、伽马噪声、指数噪声、均匀噪声、椒盐（脉冲）噪声、</p>
+<p>噪声图像及其直方图</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129113513501.png" alt="image-20210129113513501"></p>
+<p>由脉冲噪声污染的图像的椒盐招生的外观是唯一一种引起退化、视觉上可区分的噪声类型。 </p>
+<p>周期噪声</p>
+<p>周期噪声可通过频率域滤波来显著地减少，如果空间域中正弦波的振幅足够强，我们在改图像的谱中将看到图像中每个正弦波的脉冲对。 </p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129145552926.png" alt="image-20210129145552926"></p>
+<p>只存在噪声的复原——空间滤波</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095115516.png" alt="image-20210131095115516"></p>
+<p>均值滤波器： 算术均值滤波器 、几何均值滤波器 、谐波均值滤波器、 逆谐波均值滤波器</p>
+<p>均值滤波器实例</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095547478.png" alt="image-20210131095547478"></p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095639466.png" alt="image-20210131095639466"></p>
+<p>总结：算术均值滤波器和几何均值滤波器更加适合于处理高斯或者均匀随机噪声， 逆谐波均值滤波器更适合于处理脉冲噪声。 通过明确噪声是暗噪声还是亮噪声，以便于为Q选择正确的符号。 </p>
+<p>统计排序滤波器</p>
+<p>统计排序滤波器是空间域滤波器，空间滤波器的响应基于由该滤波器包围的图像区域中的像素值的顺序，排序结果决定滤波器的响应。 </p>
+<p>主要有：中值滤波器、最大值最小值滤波器、中点滤波器、修正的阿尔法均值滤波器</p>
+<p>中值滤波器和修正的阿尔法滤波器针对脉冲噪声相比算术和几何均值滤波器有更好的作用。 </p>
+<p>自适应滤波器</p>
+<p>随机变量最简单的度量是其均值和方差，均值为区域内平均灰度的度量，方差为该区域的对比度的度量。 </p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101046878.png" alt="image-20210131101046878"></p>
+<p>自适应中值滤波器</p>
+<p>算法过程： </p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101919410.png" alt="image-20210131101919410"></p>
+<p>目的：确定中值滤波器的输出 Zmed 是否是一个脉冲,如果不是脉冲则转到 B,如果是 则扩大窗口尺寸。</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101934499.png" alt="image-20210131101934499"></p>
+<p>其中： </p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101955531.png" alt="image-20210131101955531"></p>
+<p>算法主要作用：（1）去除椒盐噪声；（2）平滑其他非脉冲噪声；（3）减少诸如物体边界细化或者粗化等失真。 </p>
+<p>自适应中值滤波实例</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131102745841.png" alt="image-20210131102745841"></p>
+<p>（b)中噪声有被有效消除， 但是导致了图像细节的损失。 </p>
+<p>用频率域滤波消除周期噪声</p>
+<p>带阻滤波器</p>
+<p>应用：在频率域噪声分量的一般位置近似已知的应用中消除噪声。 </p>
+<p>带通滤波器</p>
+<p>带通滤波器帮助屏蔽了噪声模式，简化了噪声分析，与图像内容无关。 </p>
+<p>陷波滤波器</p>
+<p>陷波滤波器阻止事先定义的中心频率的邻域内的频率。 </p>
+<p>由于傅里叶变换的对称性，要获得有效的结果，陷波滤波器必须以关于原点对称的形式出现。 </p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131103820692.png" alt="image-20210131103820692"></p>
+<p>最佳陷波滤波</p>
+<p>解决多种干扰分量，在滤波可以避免消除太多的图像信息。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+	  
+	</div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -657,20 +945,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
