@@ -20,34 +20,59 @@
     var CONFIG = {"hostname":"lqzizzl.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="图像复原与重建 图像退化&#x2F;复原过程模型 空域退化过程：   频域退化过程  退化与复原基本原理  噪声模型 噪声的空间域频率特性 白噪声——傅里叶谱是常量的噪声。 一些重要的噪声概率密度函数 高斯噪声、瑞利噪声、伽马噪声、指数噪声、均匀噪声、椒盐（脉冲）噪声、 噪声图像及其直方图  由脉冲噪声污染的图像的椒盐招生的外观是唯一一种引起退化、视觉上可区分的噪声类型。  周期噪声 周期噪声可通过频率域">
+  <meta name="description" content="图像复原与重建图像退化&#x2F;复原过程模型空域退化过程  频域退化过程  退化与复原基本原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数字图像处理-第五章">
 <meta property="og:url" content="http://lqzizzl.github.io/2021/01/25/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%BA%94%E7%AB%A0/index.html">
 <meta property="og:site_name" content="刘强的博客">
-<meta property="og:description" content="图像复原与重建 图像退化&#x2F;复原过程模型 空域退化过程：   频域退化过程  退化与复原基本原理  噪声模型 噪声的空间域频率特性 白噪声——傅里叶谱是常量的噪声。 一些重要的噪声概率密度函数 高斯噪声、瑞利噪声、伽马噪声、指数噪声、均匀噪声、椒盐（脉冲）噪声、 噪声图像及其直方图  由脉冲噪声污染的图像的椒盐招生的外观是唯一一种引起退化、视觉上可区分的噪声类型。  周期噪声 周期噪声可通过频率域">
+<meta property="og:description" content="图像复原与重建图像退化&#x2F;复原过程模型空域退化过程  频域退化过程  退化与复原基本原理">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112410773.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112433596.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112514152.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129113513501.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129145552926.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095115516.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095547478.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095639466.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101046878.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101919410.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101934499.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101955531.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131102745841.png">
-<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131103820692.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210129112410773.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210129112433596.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210129112514152.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210129113513501.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210129145552926.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131095115516.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131095547478.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131095639466.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131101046878.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131101919410.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131101934499.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131101955531.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131102745841.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131103820692.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202103506442.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202103801471.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202104005538.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202104735209.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202104822459.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202105046369.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202105932297.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202110115892.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202110210270.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202110259028.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202111029201.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202111249929.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205161915941.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205161705428.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205162256557.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205163121351.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205163630044.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205163846881.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205164027624.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205165508338.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205165533888.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205165729121.png">
+<meta property="og:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210205170306431.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205170523292.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210208085748003.png">
 <meta property="article:published_time" content="2021-01-25T02:38:13.000Z">
-<meta property="article:modified_time" content="2021-01-31T02:53:25.453Z">
+<meta property="article:modified_time" content="2021-02-08T01:43:21.039Z">
 <meta property="article:author" content="E-Dreamer">
 <meta property="article:tag" content="图像处理">
 <meta property="article:tag" content="Matlab">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112410773.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210129112410773.png">
 
 <link rel="canonical" href="http://lqzizzl.github.io/2021/01/25/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%BA%94%E7%AB%A0/">
 
@@ -214,7 +239,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-31 10:53:25" itemprop="dateModified" datetime="2021-01-31T10:53:25+08:00">2021-01-31</time>
+                <time title="修改时间：2021-02-08 09:43:21" itemprop="dateModified" datetime="2021-02-08T09:43:21+08:00">2021-02-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -237,61 +262,122 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p> 图像复原与重建</p>
-<p>图像退化/复原过程模型</p>
-<p>空域退化过程： </p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112410773.png" alt="image-20210129112410773"></p>
-<p>频域退化过程</p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112433596.png" alt="image-20210129112433596"></p>
-<p>退化与复原基本原理</p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112514152.png" alt="image-20210129112514152"></p>
-<p>噪声模型</p>
-<p>噪声的空间域频率特性</p>
+        <h1 id="图像复原与重建"><a href="#图像复原与重建" class="headerlink" title="图像复原与重建"></a>图像复原与重建</h1><h2 id="图像退化-复原过程模型"><a href="#图像退化-复原过程模型" class="headerlink" title="图像退化/复原过程模型"></a>图像退化/复原过程模型</h2><p><strong>空域退化过程</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210129112410773.png" alt="image-20210129112410773"></p>
+<p><strong>频域退化过程</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210129112433596.png" alt="image-20210129112433596"></p>
+<p><strong>退化与复原基本原理</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210129112514152.png" alt="image-20210129112514152"></p>
+<a id="more"></a>
+
+<h2 id="噪声模型"><a href="#噪声模型" class="headerlink" title="噪声模型"></a>噪声模型</h2><p><strong>噪声的空间域频率特性</strong></p>
 <p>白噪声——傅里叶谱是常量的噪声。</p>
-<p>一些重要的噪声概率密度函数</p>
+<p><strong>一些重要的噪声概率密度函数</strong></p>
 <p>高斯噪声、瑞利噪声、伽马噪声、指数噪声、均匀噪声、椒盐（脉冲）噪声、</p>
-<p>噪声图像及其直方图</p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129113513501.png" alt="image-20210129113513501"></p>
+<p><strong>噪声图像及其直方图</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210129113513501.png" alt="image-20210129113513501"></p>
 <p>由脉冲噪声污染的图像的椒盐招生的外观是唯一一种引起退化、视觉上可区分的噪声类型。 </p>
-<p>周期噪声</p>
-<p>周期噪声可通过频率域滤波来显著地减少，如果空间域中正弦波的振幅足够强，我们在改图像的谱中将看到图像中每个正弦波的脉冲对。 </p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129145552926.png" alt="image-20210129145552926"></p>
-<p>只存在噪声的复原——空间滤波</p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095115516.png" alt="image-20210131095115516"></p>
+<p><strong>周期噪声</strong></p>
+<p>​        周期噪声可通过频率域滤波来显著地减少，如果空间域中正弦波的振幅足够强，我们在改图像的谱中将看到图像中每个正弦波的脉冲对。 </p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210129145552926.png" alt="image-20210129145552926"></p>
+<p><strong>只存在噪声的复原——空间滤波</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131095115516.png" alt="image-20210131095115516"></p>
 <p>均值滤波器： 算术均值滤波器 、几何均值滤波器 、谐波均值滤波器、 逆谐波均值滤波器</p>
-<p>均值滤波器实例</p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095547478.png" alt="image-20210131095547478"></p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095639466.png" alt="image-20210131095639466"></p>
-<p>总结：算术均值滤波器和几何均值滤波器更加适合于处理高斯或者均匀随机噪声， 逆谐波均值滤波器更适合于处理脉冲噪声。 通过明确噪声是暗噪声还是亮噪声，以便于为Q选择正确的符号。 </p>
-<p>统计排序滤波器</p>
-<p>统计排序滤波器是空间域滤波器，空间滤波器的响应基于由该滤波器包围的图像区域中的像素值的顺序，排序结果决定滤波器的响应。 </p>
+<p><strong>均值滤波器实例</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131095547478.png" alt="image-20210131095547478"></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131095639466.png" alt="image-20210131095639466"></p>
+<p>​        总结：算术均值滤波器和几何均值滤波器更加适合于处理高斯或者均匀随机噪声， 逆谐波均值滤波器更适合于处理脉冲噪声。 通过明确噪声是暗噪声还是亮噪声，以便于为Q选择正确的符号。 </p>
+<p><strong>统计排序滤波器</strong></p>
+<p>​        统计排序滤波器是空间域滤波器，空间滤波器的响应基于由该滤波器包围的图像区域中的像素值的顺序，排序结果决定滤波器的响应。 </p>
 <p>主要有：中值滤波器、最大值最小值滤波器、中点滤波器、修正的阿尔法均值滤波器</p>
 <p>中值滤波器和修正的阿尔法滤波器针对脉冲噪声相比算术和几何均值滤波器有更好的作用。 </p>
-<p>自适应滤波器</p>
-<p>随机变量最简单的度量是其均值和方差，均值为区域内平均灰度的度量，方差为该区域的对比度的度量。 </p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101046878.png" alt="image-20210131101046878"></p>
-<p>自适应中值滤波器</p>
+<p><strong>自适应滤波器</strong></p>
+<p>​        随机变量最简单的度量是其均值和方差，均值为区域内平均灰度的度量，方差为该区域的对比度的度量。 </p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131101046878.png" alt="image-20210131101046878"></p>
+<p><strong>自适应中值滤波器</strong></p>
 <p>算法过程： </p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101919410.png" alt="image-20210131101919410"></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131101919410.png" alt="image-20210131101919410"></p>
 <p>目的：确定中值滤波器的输出 Zmed 是否是一个脉冲,如果不是脉冲则转到 B,如果是 则扩大窗口尺寸。</p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101934499.png" alt="image-20210131101934499"></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131101934499.png" alt="image-20210131101934499"></p>
 <p>其中： </p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101955531.png" alt="image-20210131101955531"></p>
-<p>算法主要作用：（1）去除椒盐噪声；（2）平滑其他非脉冲噪声；（3）减少诸如物体边界细化或者粗化等失真。 </p>
-<p>自适应中值滤波实例</p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131102745841.png" alt="image-20210131102745841"></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131101955531.png" alt="image-20210131101955531"></p>
+<p>​        算法主要作用：（1）去除椒盐噪声；（2）平滑其他非脉冲噪声；（3）减少诸如物体边界细化或者粗化等失真。 </p>
+<p><strong>自适应中值滤波实例</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131102745841.png" alt="image-20210131102745841"></p>
 <p>（b)中噪声有被有效消除， 但是导致了图像细节的损失。 </p>
-<p>用频率域滤波消除周期噪声</p>
-<p>带阻滤波器</p>
+<h2 id="用频率域滤波消除周期噪声"><a href="#用频率域滤波消除周期噪声" class="headerlink" title="用频率域滤波消除周期噪声"></a>用频率域滤波消除周期噪声</h2><p><strong>带阻滤波器</strong></p>
 <p>应用：在频率域噪声分量的一般位置近似已知的应用中消除噪声。 </p>
-<p>带通滤波器</p>
+<p><strong>带通滤波器</strong></p>
 <p>带通滤波器帮助屏蔽了噪声模式，简化了噪声分析，与图像内容无关。 </p>
-<p>陷波滤波器</p>
+<p><strong>陷波滤波器</strong></p>
 <p>陷波滤波器阻止事先定义的中心频率的邻域内的频率。 </p>
 <p>由于傅里叶变换的对称性，要获得有效的结果，陷波滤波器必须以关于原点对称的形式出现。 </p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131103820692.png" alt="image-20210131103820692"></p>
-<p>最佳陷波滤波</p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210131103820692.png" alt="image-20210131103820692"></p>
+<p><strong>最佳陷波滤波</strong></p>
 <p>解决多种干扰分量，在滤波可以避免消除太多的图像信息。</p>
+<p><strong>线性、位置不变的退化</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202103506442.png" alt="image-20210202103506442"></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202103801471.png" alt="image-20210202103801471"></p>
+<p>以上表明，具有加性噪声的线性空间不变退化系统，可在空间域建模为退化（点扩散）函数与一幅图像的卷积，然后再加上噪声。 </p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202104005538.png" alt="image-20210202104005538"></p>
+<h2 id="估计退化函数"><a href="#估计退化函数" class="headerlink" title="估计退化函数"></a><strong>估计退化函数</strong></h2><p>​        方法： 观察法、试验法、数学建模法。使用以某种方式估计的退化函数来复原一幅图像的过程，称为盲去卷积过程，因为真正的退化函数很少能完全知晓。 </p>
+<p> <strong>图像观察估计</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202104735209.png" alt="image-20210202104735209"></p>
+<p><strong>试验估计</strong></p>
+<p>使用相同系统的对一个冲激（小亮点）成像，得到退化的冲激响应。</p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202104822459.png" alt="image-20210202104822459"></p>
+<p><strong>建模估计</strong></p>
+<p>例：基于大气湍流的物理特性引起的退化模型。 </p>
+<p>例：由于运动引起的图像模糊（含有噪声时，难以复原）</p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202105046369.png" alt="image-20210202105046369"></p>
+<h2 id="逆滤波"><a href="#逆滤波" class="headerlink" title="逆滤波"></a>逆滤波</h2><p>解决退化函数为0或者非常小的值的问题是一种方法是限制滤波的频率，使其接近0点。</p>
+<p><strong>最小均方误差（维纳）滤波</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202105932297.png" alt="image-20210202105932297"></p>
+<p><strong>最小均方误差滤波 == 最小二乘误差滤波</strong></p>
+<p>SNR 和 MSE 的定义： </p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202110115892.png" alt="image-20210202110115892"></p>
+<p><strong>逆滤波和维纳滤波的比较</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202110210270.png" alt="image-20210202110210270"></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202110259028.png" alt="image-20210202110259028"></p>
+<p><strong>约束最小二乘方滤波</strong></p>
+<p>​        维纳滤波存在的困难：为退化图像和噪声的功率谱必须是已知的，然而功率比的常数估计并不总是一个合适的解。 </p>
+<p>将图像复原问题简化为简单的矩阵操作。 </p>
+<p><strong>维纳滤波和最小二乘方滤波的比较</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202111029201.png" alt="image-20210202111029201"></p>
+<p><strong>几何均值滤波</strong></p>
+<p>通过参数构造前面提到过的滤波方法。 </p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210202111249929.png" alt="image-20210202111249929"></p>
+<h2 id="由投影重建图像"><a href="#由投影重建图像" class="headerlink" title="由投影重建图像"></a>由投影重建图像</h2><p>反投影法：沿着射线来的方向将一维信号反投影回去。 </p>
+<p><strong>反投影重建实例</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205161915941.png" alt="image-20210205161915941"></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205161705428.png" alt="image-20210205161705428"></p>
+<p>分别使用32个和64个反投影能够得到更精确的重建，视觉上非常接近，而且两者都存在模糊问题。 </p>
+<p><strong>计算机断层（CT)原理</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205162256557.png" alt="image-20210205162256557"></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205163121351.png" alt="image-20210205163121351"></p>
+<p>投影和雷登变换</p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205163630044.png" alt="image-20210205163630044"></p>
+<p>沿着xy 平面中任意一条线的f(x,y)的投影（线积分）的公式为雷登变换。</p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205163846881.png" alt="image-20210205163846881"></p>
+<p><strong>使用雷登变换得到原型区域的投影实例</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205164027624.png" alt="image-20210205164027624"></p>
+<p>正弦图——雷登变换 关于p 与 theata的图像。 </p>
+<p>​        CT的关键目的是 从投影得到物体的三维表示。 方法为反投影每一个投影，然后对反投影求和以产生一幅图像（切片），堆积所有的结果图像产生三维物体的再现。 </p>
+<p><strong>傅里叶切片定理（投影切片定理）</strong></p>
+<p>​        模糊问题的重建方法基础——投影的一维傅里叶变换和得到投影区域的二维傅里叶变换关系投影p 的一维傅里叶变换</p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205165508338.png" alt="image-20210205165508338"></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205165533888.png" alt="image-20210205165533888"></p>
+<p>（5.11-11)为傅里叶切片定理（投影切片定理）。 </p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205165729121.png" alt="image-20210205165729121"></p>
+<p><strong>使用平行射线束滤波反投影的重建</strong></p>
+<p>直接得到反投影会生成不可接受的模糊结果，解决方法：在计算反投影之前对投影做简单的滤波。</p>
+<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210205170306431.png" alt="image-20210205170306431"></p>
+<p><strong>使用滤波反投影的图像重建实例</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210205170523292.png" alt="image-20210205170523292"></p>
+<p>傅里叶变换在理论表示和算法开发中扮演了重要角色，其中MATLAB中CT图像处理就是基于FFT的。</p>
+<p><strong>使用扇形射线束滤波反投影的重建</strong></p>
+<p>以卷积为基础推导扇形射线滤波反投影</p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210208085748003.png" alt="image-20210208085748003"></p>
 
     </div>
 
@@ -424,6 +510,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%A4%8D%E5%8E%9F%E4%B8%8E%E9%87%8D%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">图像复原与重建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E9%80%80%E5%8C%96-%E5%A4%8D%E5%8E%9F%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">图像退化&#x2F;复原过程模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%99%AA%E5%A3%B0%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">噪声模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E9%A2%91%E7%8E%87%E5%9F%9F%E6%BB%A4%E6%B3%A2%E6%B6%88%E9%99%A4%E5%91%A8%E6%9C%9F%E5%99%AA%E5%A3%B0"><span class="nav-number">1.3.</span> <span class="nav-text">用频率域滤波消除周期噪声</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%B0%E8%AE%A1%E9%80%80%E5%8C%96%E5%87%BD%E6%95%B0"><span class="nav-number">1.4.</span> <span class="nav-text">估计退化函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%86%E6%BB%A4%E6%B3%A2"><span class="nav-number">1.5.</span> <span class="nav-text">逆滤波</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B1%E6%8A%95%E5%BD%B1%E9%87%8D%E5%BB%BA%E5%9B%BE%E5%83%8F"><span class="nav-number">1.6.</span> <span class="nav-text">由投影重建图像</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

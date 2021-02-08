@@ -352,7 +352,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-31 10:53:25" itemprop="dateModified" datetime="2021-01-31T10:53:25+08:00">2021-01-31</time>
+                <time title="修改时间：2021-02-08 09:43:21" itemprop="dateModified" datetime="2021-02-08T09:43:21+08:00">2021-02-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -375,62 +375,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p> 图像复原与重建</p>
-<p>图像退化/复原过程模型</p>
-<p>空域退化过程： </p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112410773.png" alt="image-20210129112410773"></p>
-<p>频域退化过程</p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112433596.png" alt="image-20210129112433596"></p>
-<p>退化与复原基本原理</p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129112514152.png" alt="image-20210129112514152"></p>
-<p>噪声模型</p>
-<p>噪声的空间域频率特性</p>
-<p>白噪声——傅里叶谱是常量的噪声。</p>
-<p>一些重要的噪声概率密度函数</p>
-<p>高斯噪声、瑞利噪声、伽马噪声、指数噪声、均匀噪声、椒盐（脉冲）噪声、</p>
-<p>噪声图像及其直方图</p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129113513501.png" alt="image-20210129113513501"></p>
-<p>由脉冲噪声污染的图像的椒盐招生的外观是唯一一种引起退化、视觉上可区分的噪声类型。 </p>
-<p>周期噪声</p>
-<p>周期噪声可通过频率域滤波来显著地减少，如果空间域中正弦波的振幅足够强，我们在改图像的谱中将看到图像中每个正弦波的脉冲对。 </p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210129145552926.png" alt="image-20210129145552926"></p>
-<p>只存在噪声的复原——空间滤波</p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095115516.png" alt="image-20210131095115516"></p>
-<p>均值滤波器： 算术均值滤波器 、几何均值滤波器 、谐波均值滤波器、 逆谐波均值滤波器</p>
-<p>均值滤波器实例</p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095547478.png" alt="image-20210131095547478"></p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131095639466.png" alt="image-20210131095639466"></p>
-<p>总结：算术均值滤波器和几何均值滤波器更加适合于处理高斯或者均匀随机噪声， 逆谐波均值滤波器更适合于处理脉冲噪声。 通过明确噪声是暗噪声还是亮噪声，以便于为Q选择正确的符号。 </p>
-<p>统计排序滤波器</p>
-<p>统计排序滤波器是空间域滤波器，空间滤波器的响应基于由该滤波器包围的图像区域中的像素值的顺序，排序结果决定滤波器的响应。 </p>
-<p>主要有：中值滤波器、最大值最小值滤波器、中点滤波器、修正的阿尔法均值滤波器</p>
-<p>中值滤波器和修正的阿尔法滤波器针对脉冲噪声相比算术和几何均值滤波器有更好的作用。 </p>
-<p>自适应滤波器</p>
-<p>随机变量最简单的度量是其均值和方差，均值为区域内平均灰度的度量，方差为该区域的对比度的度量。 </p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101046878.png" alt="image-20210131101046878"></p>
-<p>自适应中值滤波器</p>
-<p>算法过程： </p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101919410.png" alt="image-20210131101919410"></p>
-<p>目的：确定中值滤波器的输出 Zmed 是否是一个脉冲,如果不是脉冲则转到 B,如果是 则扩大窗口尺寸。</p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101934499.png" alt="image-20210131101934499"></p>
-<p>其中： </p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131101955531.png" alt="image-20210131101955531"></p>
-<p>算法主要作用：（1）去除椒盐噪声；（2）平滑其他非脉冲噪声；（3）减少诸如物体边界细化或者粗化等失真。 </p>
-<p>自适应中值滤波实例</p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131102745841.png" alt="image-20210131102745841"></p>
-<p>（b)中噪声有被有效消除， 但是导致了图像细节的损失。 </p>
-<p>用频率域滤波消除周期噪声</p>
-<p>带阻滤波器</p>
-<p>应用：在频率域噪声分量的一般位置近似已知的应用中消除噪声。 </p>
-<p>带通滤波器</p>
-<p>带通滤波器帮助屏蔽了噪声模式，简化了噪声分析，与图像内容无关。 </p>
-<p>陷波滤波器</p>
-<p>陷波滤波器阻止事先定义的中心频率的邻域内的频率。 </p>
-<p>由于傅里叶变换的对称性，要获得有效的结果，陷波滤波器必须以关于原点对称的形式出现。 </p>
-<p><img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20210131103820692.png" alt="image-20210131103820692"></p>
-<p>最佳陷波滤波</p>
-<p>解决多种干扰分量，在滤波可以避免消除太多的图像信息。</p>
-
+          <h1 id="图像复原与重建"><a href="#图像复原与重建" class="headerlink" title="图像复原与重建"></a>图像复原与重建</h1><h2 id="图像退化-复原过程模型"><a href="#图像退化-复原过程模型" class="headerlink" title="图像退化/复原过程模型"></a>图像退化/复原过程模型</h2><p><strong>空域退化过程</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210129112410773.png" alt="image-20210129112410773"></p>
+<p><strong>频域退化过程</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210129112433596.png" alt="image-20210129112433596"></p>
+<p><strong>退化与复原基本原理</strong></p>
+<p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210129112514152.png" alt="image-20210129112514152"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/25/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E4%BA%94%E7%AB%A0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
