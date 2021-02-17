@@ -6,7 +6,7 @@
   <link href="http://lqzizzl.github.io/atom.xml" rel="self"/>
   
   <link href="http://lqzizzl.github.io/"/>
-  <updated>2021-02-01T02:50:38.887Z</updated>
+  <updated>2021-02-17T01:18:25.287Z</updated>
   <id>http://lqzizzl.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数字图像处理-第六章</title>
+    <link href="http://lqzizzl.github.io/2021/02/09/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E5%85%AD%E7%AB%A0/"/>
+    <id>http://lqzizzl.github.io/2021/02/09/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86-%E7%AC%AC%E5%85%AD%E7%AB%A0/</id>
+    <published>2021-02-09T00:54:08.000Z</published>
+    <updated>2021-02-17T01:18:25.287Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="彩色图像处理"><a href="#彩色图像处理" class="headerlink" title="彩色图像处理"></a>彩色图像处理</h1><h2 id="彩色基础"><a href="#彩色基础" class="headerlink" title="彩色基础"></a>彩色基础</h2><h3 id="一些概念："><a href="#一些概念：" class="headerlink" title="一些概念："></a><strong>一些概念：</strong></h3><p><strong>色调</strong>是光波混个中与主波长有关的属性。色调表示观察者感知的主要颜色。 </p><p><strong>饱和度</strong>是指相对的纯净度，或者一种颜色混合白光的数量，饱和度与所加白光的数量成反比。 </p><p>色调与饱和度一起称为<strong>色度</strong>，颜色可用<strong>亮度和色度</strong>来表征。 </p><a id="more"></a><h3 id="三色值"><a href="#三色值" class="headerlink" title="三色值"></a>三色值</h3><p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210209091450663.png" alt="image-20210209091450663"></p><h2 id="彩色模型"><a href="#彩色模型" class="headerlink" title="彩色模型"></a>彩色模型</h2><p>目的： 在某些标准下通常可以接收的方式方便地对彩色加以说明。 </p><p>常用的有：**RGB模型、CMY（青、粉红、黄）、CMYK(青、粉红、黄，黑)、HSI(色、饱和度、亮度)**：可以解除图像中的颜色和灰度信息的联系。 </p><h3 id="RGB模型"><a href="#RGB模型" class="headerlink" title="RGB模型"></a>RGB模型</h3><p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210209094230427.png" alt="image-20210209094230427"></p><h3 id="CMY-和-CMYK彩色模型"><a href="#CMY-和-CMYK彩色模型" class="headerlink" title="CMY 和 CMYK彩色模型"></a>CMY 和 CMYK彩色模型</h3><p>RGB到CMY的转换</p><p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210210145925903.png" alt="image-20210210145925903"></p><p>CMYK 为 在 CMY的基础上加上黑色。 </p><h3 id="HSI彩色模型"><a href="#HSI彩色模型" class="headerlink" title="HSI彩色模型"></a>HSI彩色模型</h3><p>用色调、饱和度、亮度来描述彩色物体。 RGB可以与HSI相互转换。</p><h2 id="伪彩色图像处理"><a href="#伪彩色图像处理" class="headerlink" title="伪彩色图像处理"></a>伪彩色图像处理</h2><p>伪彩色图像处理是基于指定的规则对灰度值赋以颜色的处理。 </p><p>​    <strong>灰度分层：应用实例——使用彩色突出降雨量</strong></p><p>​    <img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210210152824794.png" alt="image-20210210152824794"></p><p>​    <strong>灰度到彩色的转换： 应用实例——突出行李内包含的爆炸物的伪彩色应用。</strong></p><p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210210153116699.png" alt="image-20210210153116699"></p><p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210210153718687.png" alt="image-20210210153718687"></p><h2 id="全彩色图像处理基础"><a href="#全彩色图像处理基础" class="headerlink" title="全彩色图像处理基础"></a>全彩色图像处理基础</h2><p>彩色变换：主要涉及在单一彩色模型内处理彩色图像的分量。</p><p>模型公式： <img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210210154729129.png" alt="image-20210210154729129"></p><h3 id="补色"><a href="#补色" class="headerlink" title="补色"></a>补色</h3><p>输入图像的饱和度分量是不可改变的，造成了 c 、 d 的视觉差别。 </p><p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210210155010370.png" alt="image-20210210155010370"></p><h3 id="彩色分层"><a href="#彩色分层" class="headerlink" title="彩色分层"></a>彩色分层</h3><p>比灰度分层复杂，所要求的变换比所考虑的彩色分量变换复杂，因为所有彩色分层方法都要求每个像素变换后的彩色分量是所有n个原始像素的彩色分量的函数。 </p><h3 id="色彩和彩色校正"><a href="#色彩和彩色校正" class="headerlink" title="色彩和彩色校正"></a>色彩和彩色校正</h3><p>标准成像系统的意义：允许交互和独立地校正色调和色彩的不平衡，一幅图像的色调范围是指颜色强度的基本分布。 </p><h3 id="色调变换"><a href="#色调变换" class="headerlink" title="色调变换"></a>色调变换</h3><p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210216110603214.png" alt="image-20210216110603214"></p><h3 id="直方图处理"><a href="#直方图处理" class="headerlink" title="直方图处理"></a>直方图处理</h3><p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210216111651281.png" alt="image-20210216111651281"></p><h2 id="平滑和锐化"><a href="#平滑和锐化" class="headerlink" title="平滑和锐化"></a>平滑和锐化</h2><p>灰度级图像平滑与全彩色图像处理的差别：使用</p><p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210216111924660.png" alt="image-20210216111924660"></p><p>给出的分量向量来替代灰度标量值。 </p><p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210216112446035.png" alt="image-20210216112446035"></p><h3 id="彩色图像锐化"><a href="#彩色图像锐化" class="headerlink" title="彩色图像锐化"></a>彩色图像锐化</h3><p>上面c向量的拉普拉色变换为： </p><p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210216112537962.png" alt="image-20210216112537962"></p><p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210216112505572.png" alt="image-20210216112505572"></p><h2 id="基于彩色图像的图像分割"><a href="#基于彩色图像的图像分割" class="headerlink" title="基于彩色图像的图像分割"></a>基于彩色图像的图像分割</h2><h3 id="HSI空间中的分割实例"><a href="#HSI空间中的分割实例" class="headerlink" title="HSI空间中的分割实例"></a>HSI空间中的分割实例</h3><p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210216112638987.png" alt="image-20210216112638987"></p><p>实验表明，在识别原图像的微红色分量时，h的白色区域是最好结果。 </p><h3 id="RGB向量空间中的分割"><a href="#RGB向量空间中的分割" class="headerlink" title="RGB向量空间中的分割"></a>RGB向量空间中的分割</h3><p>分割的目的是将给定图像中的每个RGB像素分类，即在指定的区域内是否有一种颜色，最简单的距离度量为欧式距离。 </p><h2 id="彩色边缘检测"><a href="#彩色边缘检测" class="headerlink" title="彩色边缘检测"></a>彩色边缘检测</h2><p>计算单幅图像的梯度然后用得到的结果形成一幅彩色图像将会导致错误的结果。 </p><p><img src="https://raw.githubusercontent.com/lqzizzl/Images_repository/master/image_process_5/image-20210216115123639.png" alt="image-20210216115123639"></p><h2 id="彩色图像的噪声"><a href="#彩色图像的噪声" class="headerlink" title="彩色图像的噪声"></a>彩色图像的噪声</h2><p>将RGB带噪声图像转化为HSI时，一个通道含有噪声，转换出来的图像会携带噪声。 </p><h2 id="彩色图像的压缩"><a href="#彩色图像的压缩" class="headerlink" title="彩色图像的压缩"></a>彩色图像的压缩</h2><p>描述彩色所要求的比特数相比描述灰度级的比特数大3-4倍。 第八章会详细介绍。 </p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;彩色图像处理&quot;&gt;&lt;a href=&quot;#彩色图像处理&quot; class=&quot;headerlink&quot; title=&quot;彩色图像处理&quot;&gt;&lt;/a&gt;彩色图像处理&lt;/h1&gt;&lt;h2 id=&quot;彩色基础&quot;&gt;&lt;a href=&quot;#彩色基础&quot; class=&quot;headerlink&quot; title=&quot;彩色基础&quot;&gt;&lt;/a&gt;彩色基础&lt;/h2&gt;&lt;h3 id=&quot;一些概念：&quot;&gt;&lt;a href=&quot;#一些概念：&quot; class=&quot;headerlink&quot; title=&quot;一些概念：&quot;&gt;&lt;/a&gt;&lt;strong&gt;一些概念：&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;色调&lt;/strong&gt;是光波混个中与主波长有关的属性。色调表示观察者感知的主要颜色。 &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;饱和度&lt;/strong&gt;是指相对的纯净度，或者一种颜色混合白光的数量，饱和度与所加白光的数量成反比。 &lt;/p&gt;
+&lt;p&gt;色调与饱和度一起称为&lt;strong&gt;色度&lt;/strong&gt;，颜色可用&lt;strong&gt;亮度和色度&lt;/strong&gt;来表征。 &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="图像处理" scheme="http://lqzizzl.github.io/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    
+    <category term="图像处理" scheme="http://lqzizzl.github.io/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+    <category term="Matlab" scheme="http://lqzizzl.github.io/tags/Matlab/"/>
+    
+  </entry>
   
   <entry>
     <title>使用dash和python创建app示例</title>
